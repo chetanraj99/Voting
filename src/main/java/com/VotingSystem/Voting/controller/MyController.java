@@ -1,5 +1,7 @@
 package com.VotingSystem.Voting.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,8 +30,22 @@ public class MyController {
 		
 		@GetMapping("/home")
 		public String home() {
-			System.out.print("hello there");
 			return "Welcome to the bootspring jpa online voting application.";
+		}
+		
+		@GetMapping("/voters")
+		public List<Voters> getVoters(){
+			return this.voterServices.getVoters();
+		}
+		
+		@GetMapping("/admin")
+		public List<Admin> getAdmin(){
+			return this.adminServices.getAdmins();
+		}
+		
+		@GetMapping("/candidates")
+		public List<Candidates> getCandidates(){
+			return this.adminServices.getCandidates();
 		}
 		
 		@PostMapping("/voters")

@@ -1,10 +1,13 @@
 package com.VotingSystem.Voting.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.VotingSystem.Voting.dao.*;
 import com.VotingSystem.Voting.entities.*;
+
 
 @Service
 public class VoterServicesImp implements VoterServices {
@@ -27,6 +30,12 @@ public class VoterServicesImp implements VoterServices {
 		candidate.setCounting(candidate.getCounting()+1);
 		candidateDao.save(candidate);
 		return "You have voted successfully.";
+	}
+
+	@Override
+	public List<Voters> getVoters() {
+		// TODO Auto-generated method stub
+		return voterDao.findAll();
 	}
 
 }

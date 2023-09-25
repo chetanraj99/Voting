@@ -1,5 +1,5 @@
 package com.VotingSystem.Voting.services;
-
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +26,18 @@ public class AdminServicesImp implements AdminServices {
 		// TODO Auto-generated method stub
 		adminDao.save(admin);
 		return admin;
+	}
+
+	@Override
+	public List<Admin> getAdmins() {
+		// TODO Auto-generated method stub
+		return adminDao.findAll();
+	}
+
+	@Override
+	public List<Candidates> getCandidates() {
+		// TODO Auto-generated method stub
+		return candidatesDao.findAll();
 	}
 
 	
